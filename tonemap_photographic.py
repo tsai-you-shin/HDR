@@ -65,7 +65,7 @@ def loadExposureSeq(path):
     for line in content:
         tokens = line.split()
         images.append(cv.imread(os.path.join(path, tokens[0])))
-        times.append(1/float(tokens[1]))
+        times.append(float(tokens[1]))
     return images, np.asarray(times, dtype=np.float32)
 
 parser = argparse.ArgumentParser(description='Code for High Dynamic Range Imaging tutorial.')
