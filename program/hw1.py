@@ -6,7 +6,6 @@ import numpy as np
 import argparse
 import os
 from mtb import *
-from robertson import *
 from Debevec import *
 from tonemap_photographic import *
 
