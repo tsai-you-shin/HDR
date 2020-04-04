@@ -16,10 +16,10 @@ def loadExposureSeq(path):
         content = f.readlines()
     for line in content:
         tokens = line.split()
-        image = cv.imread(os.path.join(path, tokens[0]))
-        image = cv.resize(image, (0, 0), fx=0.05, fy=0.05)
-        images.append(image)
-        #images.append(cv.imread(os.path.join(path, tokens[0])))
+        #image = cv.imread(os.path.join(path, tokens[0]))
+        #image = cv.resize(image, (0, 0), fx=0.05, fy=0.05)
+        #images.append(image)
+        images.append(cv.imread(os.path.join(path, tokens[0])))
         times.append(float(tokens[1]))
     return images, np.asarray(times, dtype=np.float32)
 
