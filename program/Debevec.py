@@ -17,19 +17,6 @@ def weight(value):  # w(z) is weighting function value for pixel value z
 
 
 ###
-def loadExposureSeq(path):
-    images = []
-    times = []
-    with open(os.path.join(path, 'list.txt')) as f:
-        content = f.readlines()
-    for line in content:
-        tokens = line.split()
-        images.append(cv.imread(os.path.join(path, tokens[0])))
-        times.append(1 / float(tokens[1]))
-
-    return images, np.asarray(times, dtype=np.float32)
-
-
 def bgr2gray(bgr):
     return np.dot(bgr[..., :3], [0.1140, 0.5870, 0.2989])
 
