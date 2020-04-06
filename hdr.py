@@ -89,6 +89,7 @@ def gsolve(Z,B,L):
 			A[k][int(Z[i][j])] = w
 			A[k][n+i] = -w
 			b[k][0] = w*B[j]
+			k += 1
 
 	A[k][127] = 1
 	k+=1
