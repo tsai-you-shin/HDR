@@ -17,6 +17,7 @@ def weight(value):  # w(z) is weighting function value for pixel value z
 
 
 ###
+
 def bgr2gray(bgr):
     return np.dot(bgr[..., :3], [0.1140, 0.5870, 0.2989])
 
@@ -40,10 +41,22 @@ def radianceMap(g, B, images):
                     a += weight(images[p, i, j, channel]) * (g[int(images[p, i, j, channel]),channel] - B[p])
                     b += weight(images[p, i, j, channel])
                 result[i, j, channel] = a/b
+
     result[np.isnan(result)] = 0
     result = np.exp(result)
     result[np.isnan(result)] = 0
     result[np.isinf(result)] = 0
+    print("checking hdr...")
+    result_max = np.amax(result)
+    for channel in range(3):
+        for i in range(images.shape[1]):
+            for j in range(images.shape[2]):
+                if result[i, j, channel] <= 1:
+                    #print("hi")
+                    for p in range(images.shape[0]):
+                        if images[p, i, j, channel] > 200:
+                            #print("bingo")
+                            result[i, j, channel] = result_max
     return result
 
 
