@@ -82,7 +82,7 @@ def gsolve(Z,B,L):
 	A = np.zeros((Z.shape[1]*Z.shape[0]+1+(n-2),n+Z.shape[0]), dtype=np.float32)
 	b = np.zeros((np.size(A,0),1), dtype=np.float32)
 
-	k = 1
+	k = 0
 	for i in range(Z.shape[0]):
 		for j in range(Z.shape[1]):
 			w = weight(Z[i][j])
@@ -94,7 +94,7 @@ def gsolve(Z,B,L):
 	A[k][127] = 1
 	k+=1
 
-	for i in range(1,n-2):
+	for i in range(1,n-1):
 		w = weight(i)
 		A[k][i-1] = L*w
 		A[k][i] = -2*L*w
@@ -104,7 +104,7 @@ def gsolve(Z,B,L):
 	invA = np.linalg.pinv(A)
 	x = np.dot(invA,b)
 
-	return x[0:n-1]
+	return x[0:n]
 
 
 def HDR(images, times):
