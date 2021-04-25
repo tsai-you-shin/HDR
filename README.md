@@ -1,9 +1,14 @@
 # HDR
 High Dynamic Range Imaging
 
-## photo
-- [musiHall](https://drive.google.com/open?id=1jiRe7zPEDhBy2z1Jbme04geDPFAZoI5u)
-- [cksMemoria](https://drive.google.com/open?id=1mpN8ufQPuNmJZkwiZmmP77hxPAhFzgN-)
-- [NTU - corridor of school history museum](https://drive.google.com/drive/folders/12vYEt_SUoaiqvjokTiqYA8aDrf9stUyg?usp=sharing)
-- [consturction site](https://drive.google.com/drive/folders/1-yUkE7wLzECdYn44eWMpZTUicBiTi44z?usp=sharing)
-- [museum](https://drive.google.com/drive/folders/1ND1O6Qt0ilhRyYVPUP3CFwCQP8Q3_UJV?usp=sharing)
+- Participants: 童筱妍 蔡宥杏
+- [Report](https://hackmd.io/@IYvh1Iq5QwSChHCr06GTQA/HyTUz9Ew8) on Hackmd, click to see more details
+
+## 什麼是HDR
+High Dynamic Range Imaging是用來實現比普通點陣圖像技術(常受限於明暗差距)更大曝光動態範圍的一種技術，使得圖片能顯示出更大的明暗變化，讓圖片經由計算重整能更接近人眼所見的世界。
+- 整體實作過程可分為三個部分:
+    - 影像對齊(image alignment)
+    - 藉由不同曝光時間的照片，回推計算真實場景的能量分布(LDR->HDR)
+    - 經由tone mapping將場景能量轉換成普通螢幕能顯示的影像(HDR->LDR)
+
+
